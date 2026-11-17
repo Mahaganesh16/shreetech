@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { technologyGroups } from '@/data/technologies';
 import { 
   ReactLogo, 
@@ -42,6 +42,23 @@ const logoComponentMap: Record<string, React.ComponentType<{ className?: string 
   FirebaseLogo,
 };
 
+interface TechItem {
+  name: string;
+  description: string;
+  iconComponent: string;
+}
+
+// Generate repeating items so Set A is always wider than 3000px before duplicating for the seamless 50% loop
+function getMarqueeSet(items: TechItem[], minTotal = 12): TechItem[] {
+  if (items.length === 0) return [];
+  const repeatCount = Math.max(2, Math.ceil(minTotal / items.length));
+  const baseSet: TechItem[] = [];
+  for (let r = 0; r < repeatCount; r++) {
+    baseSet.push(...items);
+  }
+  return [...baseSet, ...baseSet];
+}
+
 export default function Technologies() {
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
@@ -54,6 +71,36 @@ export default function Technologies() {
 
   return (
     <section id="technologies" className="relative py-28 sm:py-36 bg-transparent overflow-hidden">
+      {/* Embedded Hardware-Accelerated Keyframes for Guaranteed 60FPS Right-to-Left Auto-Scroll */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @keyframes slackAutoScrollRtl {
+              0% {
+                transform: translate3d(0, 0, 0);
+              }
+              100% {
+                transform: translate3d(-50%, 0, 0);
+              }
+            }
+
+            .slack-scroll-row {
+              display: flex !important;
+              width: max-content !important;
+              gap: 1rem !important;
+              animation: slackAutoScrollRtl 26s linear infinite !important;
+              will-change: transform !important;
+            }
+
+            @media (min-width: 640px) {
+              .slack-scroll-row {
+                gap: 1.25rem !important;
+              }
+            }
+          `,
+        }}
+      />
+
       {/* Ambient Lighting Blooms for Glass Layers */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[42rem] h-[42rem] bg-orange-200/25 rounded-full blur-[180px] pointer-events-none" />
 
@@ -89,45 +136,56 @@ export default function Technologies() {
           ))}
         </div>
 
-        {/* Organized Technology Groups in Glass Cards */}
+        {/* Organized Technology Groups with Smooth Right-to-Left Slack-Style Auto-Scroll */}
         <div className="mt-10 space-y-12">
-          {displayedGroups.map((group) => (
-            <div key={group.category} className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-2 border-b border-slate-200/60">
-                <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 shadow-sm" />
-                  {group.category} Engineering
-                </h3>
-                <span className="text-xs text-slate-500 font-normal">{group.description}</span>
-              </div>
+          {displayedGroups.map((group) => {
+            const marqueeItems = getMarqueeSet(group.items, 12);
 
-              {/* Grid of Actual Technology Logos */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {group.items.map((tech) => {
-                  const Logo = logoComponentMap[tech.iconComponent] || ReactLogo;
+            return (
+              <div key={group.category} className="space-y-4">
+                {/* Category Header (Dot-free, Clean Typography) */}
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-2 border-b border-slate-200/60">
+                  <h3 className="text-xl font-bold text-slate-900 font-heading">
+                    {group.category} Engineering
+                  </h3>
+                  <span className="text-xs text-slate-500 font-normal">{group.description}</span>
+                </div>
 
-                  return (
-                    <div
-                      key={tech.name}
-                      className="glass-card glass-card-hover p-4 rounded-2xl flex items-center gap-3.5 group cursor-default"
-                    >
-                      <div className="w-11 h-11 rounded-xl bg-white border border-slate-100 flex items-center justify-center shrink-0 p-2 group-hover:scale-105 transition-transform shadow-sm">
-                        <Logo className="w-full h-full object-contain" />
-                      </div>
-                      <div className="overflow-hidden">
-                        <div className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
-                          {tech.name}
+                {/* Continuous Infinite Auto-Scrolling Track (Right to Left) */}
+                <div className="relative w-full overflow-hidden py-1">
+                  {/* Left & Right Soft Horizon Fade Masks */}
+                  <div className="pointer-events-none absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/85 to-transparent z-10" />
+                  <div className="pointer-events-none absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#faf9f6] via-[#faf9f6]/85 to-transparent z-10" />
+
+                  {/* Auto-scrolling Row */}
+                  <div className="slack-scroll-row">
+                    {marqueeItems.map((tech, idx) => {
+                      const Logo = logoComponentMap[tech.iconComponent] || ReactLogo;
+
+                      return (
+                        <div
+                          key={`${group.category}-${tech.name}-${idx}`}
+                          className="w-[260px] sm:w-[280px] shrink-0 glass-card glass-card-hover p-4 rounded-2xl flex items-center gap-3.5 group cursor-default relative overflow-hidden select-none"
+                        >
+                          <div className="w-11 h-11 rounded-xl bg-white border border-slate-100 flex items-center justify-center shrink-0 p-2 group-hover:scale-110 group-hover:-translate-y-0.5 transition-all duration-300 shadow-sm">
+                            <Logo className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
+                          </div>
+                          <div className="overflow-hidden min-w-0 flex-1">
+                            <h4 className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors truncate font-heading">
+                              {tech.name}
+                            </h4>
+                            <p className="text-[11px] text-slate-500 truncate mt-0.5 font-normal">
+                              {tech.description}
+                            </p>
+                          </div>
                         </div>
-                        <div className="text-[11px] text-slate-500 truncate mt-0.5 font-normal">
-                          {tech.description}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

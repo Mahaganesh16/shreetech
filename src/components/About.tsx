@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { useInView } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -37,25 +38,17 @@ function StatCounter({ value, suffix = '', label, sublabel }: StatProps) {
   }, [isInView, value]);
 
   return (
-    <div ref={ref} className="glass-card glass-card-hover p-6 rounded-2xl">
-      <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-stat">
+    <div ref={ref} className="glass-card glass-card-hover p-6 rounded-2xl group cursor-default">
+      <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-stat group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-rose-600 transition-all duration-300">
         {count}{suffix}
       </div>
-      <div className="text-sm font-bold text-slate-800 mt-1">{label}</div>
+      <div className="text-sm font-bold text-slate-800 mt-1 group-hover:text-slate-950 transition-colors">{label}</div>
       <div className="text-xs text-slate-500 mt-0.5">{sublabel}</div>
     </div>
   );
 }
 
 export default function About() {
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="about" className="relative py-28 sm:py-36 bg-transparent overflow-hidden">
       {/* Background Ambient Blooms */}
@@ -102,20 +95,20 @@ export default function About() {
             </div>
 
             <div className="pt-2">
-              <button
-                onClick={() => scrollTo('services')}
+              <Link
+                href="/services"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-rose-800 transition-colors group cursor-pointer"
               >
                 <span>Read More About Our Engineering Practices</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
           </div>
 
           {/* Right Column: Workplace / Engineering Team Image & Glass Statistics (6 Cols) */}
           <div className="lg:col-span-6 space-y-6">
             {/* Real Workplace Image with Frosted Glass Frame */}
-            <div className="relative rounded-3xl overflow-hidden glass-card p-2.5 shadow-2xl group">
+            <div className="relative rounded-3xl overflow-hidden glass-card glass-card-hover p-2.5 shadow-2xl group">
               <div className="rounded-2xl overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"

@@ -52,13 +52,13 @@ export default function WhyChooseUs() {
                 <div>
                   {/* Top Bar with Icon & Advantage Number */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:border-transparent transition-all shadow-sm">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:border-transparent group-hover:scale-105 group-hover:-translate-y-0.5 transition-all duration-300 shadow-sm">
+                      <Icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <span className="text-xs font-bold font-stat text-slate-400">0{idx + 1}</span>
+                    <span className="text-xs font-bold font-stat text-slate-400 group-hover:text-orange-600 transition-colors duration-300">0{idx + 1}</span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 mb-2.5 group-hover:text-orange-600 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2.5 group-hover:text-orange-600 transition-colors duration-300 font-heading">
                     {item.title}
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed font-normal">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { projectsData, Project } from '@/data/projects';
 import { ArrowUpRight, X, CheckCircle2 } from 'lucide-react';
 
@@ -135,12 +136,16 @@ export default function Projects() {
                   <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
                     <button
                       onClick={() => setActiveModalProject(project)}
-                      className="text-xs font-bold text-orange-600 hover:text-rose-700 inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                      className="text-xs font-bold text-slate-700 group-hover:text-orange-600 inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
                       <span>View Case Study</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
-                    <span className="text-xs text-slate-500 font-medium">Enterprise Verified</span>
+                    <div 
+                      onClick={() => setActiveModalProject(project)}
+                      className="w-8 h-8 rounded-full bg-slate-100/80 border border-slate-200/70 group-hover:border-orange-500/30 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-500 text-slate-600 group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_4px_12px_rgba(255,107,0,0.3)] cursor-pointer"
+                    >
+                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -226,19 +231,13 @@ export default function Projects() {
             </div>
 
             <div className="mt-8 pt-4 border-t border-slate-200/60 flex justify-end">
-              <button
-                onClick={() => {
-                  setActiveModalProject(null);
-                  const el = document.getElementById('contact');
-                  if (el) {
-                    const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                  }
-                }}
-                className="glass-btn-primary px-6 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm cursor-pointer"
+              <Link
+                href="/contact"
+                onClick={() => setActiveModalProject(null)}
+                className="glass-btn-primary px-6 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm cursor-pointer inline-flex items-center"
               >
                 Discuss a Similar Project
-              </button>
+              </Link>
             </div>
           </div>
         </div>

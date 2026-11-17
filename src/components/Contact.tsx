@@ -98,43 +98,43 @@ export default function Contact() {
 
             {/* Direct Contact Channels in Glass Cards */}
             <div className="space-y-4">
-              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 shrink-0 shadow-sm">
+              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0 shadow-sm">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 font-medium">Direct Inquiries</div>
                   <a
                     href="mailto:contact@shreetech.com"
-                    className="text-sm font-bold text-slate-900 hover:text-orange-700 transition-colors"
+                    className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors"
                   >
                     contact@shreetech.com
                   </a>
                 </div>
               </div>
 
-              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 shrink-0 shadow-sm">
+              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0 shadow-sm">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 font-medium">Direct Hotline</div>
                   <a
                     href="tel:+18008402030"
-                    className="text-sm font-bold text-slate-900 hover:text-orange-700 transition-colors font-stat"
+                    className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors font-stat"
                   >
                     +1 (800) 840-2030
                   </a>
                 </div>
               </div>
 
-              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 shrink-0 shadow-sm">
+              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0 shadow-sm">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 font-medium">Headquarters</div>
-                  <div className="text-sm text-slate-700 font-medium">
+                  <div className="text-sm text-slate-700 font-medium group-hover:text-slate-900 transition-colors">
                     500 Howard Street, Suite 400<br />San Francisco, CA 94105
                   </div>
                 </div>

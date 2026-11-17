@@ -27,20 +27,20 @@ export default function Process() {
           {processSteps.map((step) => (
             <div
               key={step.number}
-              className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between"
+              className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between group select-none"
             >
               <div>
                 {/* Step Number & Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-rose-600 font-stat tracking-tight">
+                  <span className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-rose-600 font-stat tracking-tight group-hover:scale-105 transition-transform duration-300 inline-block">
                     {step.number}
                   </span>
-                  <span className="glass-pill text-[10px] uppercase tracking-wider px-3 py-1 rounded-full text-slate-700 font-bold">
+                  <span className="glass-pill text-[10px] uppercase tracking-wider px-3 py-1 rounded-full text-slate-700 font-bold group-hover:bg-orange-100 group-hover:text-orange-950 transition-colors">
                     Phase {step.number}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 mb-2.5">{step.title}</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2.5 group-hover:text-orange-600 transition-colors duration-300 font-heading">{step.title}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed font-normal">
                   {step.description}
                 </p>

@@ -37,8 +37,8 @@ export default function Testimonials() {
         </div>
 
         {/* Clean Frosted Glass Testimonial Card */}
-        <div className="relative p-8 sm:p-12 rounded-3xl glass-panel shadow-2xl">
-          <Quote className="w-12 h-12 text-orange-500/20 mb-6" />
+        <div className="relative p-8 sm:p-12 rounded-3xl glass-card glass-card-hover shadow-2xl group cursor-default">
+          <Quote className="w-12 h-12 text-orange-500/20 group-hover:text-orange-500/40 group-hover:scale-105 transition-all duration-300 mb-6" />
 
           {/* Review Text */}
           <p className="text-lg sm:text-xl text-slate-800 font-normal leading-relaxed italic">

@@ -18,7 +18,7 @@
 
   body {
     background-color: #faf9f6;
-    background-image: 
+    background-image:
       radial-gradient(ellipse at 15% 15%, rgba(255, 237, 213, 0.45) 0%, transparent 55%),
       radial-gradient(ellipse at 85% 20%, rgba(254, 226, 226, 0.45) 0%, transparent 60%),
       radial-gradient(ellipse at 50% 50%, rgba(255, 247, 237, 0.5) 0%, transparent 70%),
@@ -36,7 +36,14 @@
     min-height: 100vh;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-heading, .font-title {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading,
+  .font-title {
     font-family: var(--font-heading);
     letter-spacing: -0.03em;
     font-weight: 700;
@@ -47,14 +54,20 @@
   }
 
   /* Developer-crafted human modern number typography */
-  .stat-number, .font-stat {
+  .stat-number,
+  .font-stat {
     font-family: var(--font-heading);
     font-feature-settings: 'tnum' on, 'lnum' on;
     letter-spacing: -0.035em;
     font-variant-numeric: tabular-nums lining-nums;
   }
 
-  p, span, a, button, input, textarea {
+  p,
+  span,
+  a,
+  button,
+  input,
+  textarea {
     font-family: var(--font-body);
   }
 
@@ -86,7 +99,7 @@
 
 /* Primary Frosted Glass Card */
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.95);
@@ -94,17 +107,63 @@
     0 20px 45px -10px rgba(15, 23, 42, 0.05),
     0 1px 3px 0 rgba(0, 0, 0, 0.02),
     inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(255, 107, 0, 0.4);
-  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(255, 107, 0, 0.38);
+  transform: translateY(-6px);
   box-shadow: 
-    0 28px 55px -12px rgba(15, 23, 42, 0.08),
-    0 0 25px rgba(255, 107, 0, 0.12),
+    0 25px 50px -12px rgba(255, 107, 0, 0.16),
+    0 0 25px rgba(255, 107, 0, 0.07),
     inset 0 1.5px 2px 0 #ffffff;
+}
+
+/* Diagonal glass sheen reflection sweep on all hover glass cards */
+.glass-card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 100%
+  );
+  transform: skewX(-15deg);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glass-card-hover:hover::before {
+  transform: translateX(100%) skewX(-15deg);
+}
+
+/* Bottom radiant gradient accent line on all hover glass cards */
+.glass-card-hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #ff6b00 0%, #c01858 50%, #8b5cf6 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.glass-card-hover:hover::after {
+  transform: scaleX(1);
 }
 
 /* Heavy Frosted Glass Panel (Modals, Dashboard Header) */
@@ -113,7 +172,7 @@
   backdrop-filter: blur(36px) saturate(190%);
   -webkit-backdrop-filter: blur(36px) saturate(190%);
   border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 
+  box-shadow:
     0 30px 60px -12px rgba(15, 23, 42, 0.07),
     inset 0 2px 2px 0 #ffffff;
 }
@@ -124,7 +183,7 @@
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 
+  box-shadow:
     0 4px 15px rgba(15, 23, 42, 0.03),
     inset 0 1px 1.5px 0 #ffffff;
 }
@@ -143,7 +202,7 @@
   backdrop-filter: blur(32px) saturate(210%);
   -webkit-backdrop-filter: blur(32px) saturate(210%);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 
+  box-shadow:
     0 10px 30px -10px rgba(15, 23, 42, 0.08),
     0 0 20px rgba(255, 107, 0, 0.05),
     inset 0 1px 1px 0 #ffffff;
@@ -173,7 +232,7 @@
   outline: none;
   background: rgba(255, 255, 255, 0.95);
   border-color: rgba(255, 107, 0, 0.6);
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(255, 107, 0, 0.18),
     inset 0 1px 1.5px #ffffff;
 }
@@ -184,7 +243,7 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 
+  box-shadow:
     0 10px 25px -4px rgba(255, 107, 0, 0.35),
     0 4px 15px rgba(192, 24, 88, 0.22),
     inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.65);
@@ -195,7 +254,7 @@
 .glass-btn-primary:hover {
   background: linear-gradient(135deg, #ff7e1a 0%, #d42268 55%, #9d6fff 100%);
   border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 
+  box-shadow:
     0 14px 30px -4px rgba(255, 107, 0, 0.45),
     0 6px 20px rgba(192, 24, 88, 0.32),
     inset 0 1.5px 2px 0 #ffffff;
@@ -208,7 +267,7 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 
+  box-shadow:
     0 6px 20px rgba(15, 23, 42, 0.04),
     inset 0 1.5px 2px 0 #ffffff;
   color: #0f172a;
@@ -218,7 +277,7 @@
 .glass-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(255, 107, 0, 0.35);
-  box-shadow: 
+  box-shadow:
     0 10px 25px rgba(15, 23, 42, 0.06),
     inset 0 1px 2px 0 #ffffff;
   transform: translateY(-2px);
@@ -235,4 +294,39 @@
   mix-blend-mode: multiply;
 }
 
+/* -------------------------------------------------------------
+   INFINITE RIGHT-TO-LEFT MARQUEE ANIMATIONS
+   Silky 60/120fps hardware-accelerated horizontal scroll
+   ------------------------------------------------------------- */
+@keyframes marquee-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
 
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-rtl {
+  display: flex;
+  width: max-content;
+  animation: marquee-rtl var(--marquee-duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover or explicit pause class */
+.marquee-track:hover .animate-marquee-rtl,
+.marquee-paused .animate-marquee-rtl {
+  animation-play-state: paused !important;
+}
+
+/* Hide scrollbar utility across browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

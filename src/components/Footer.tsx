@@ -11,26 +11,23 @@ export default function Footer() {
   };
 
   const navLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Technologies', href: '#technologies' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Why Choose Us', href: '#why-us' },
-    { label: 'Process', href: '#process' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Technologies', href: '/technologies' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   const serviceLinks = [
-    { label: 'Website Development', href: '#services' },
-    { label: 'Mobile Application Development', href: '#services' },
-    { label: 'Custom Software Development', href: '#services' },
-    { label: 'UI/UX Design', href: '#services' },
-    { label: 'E-Commerce Development', href: '#services' },
-    { label: 'Cloud & DevOps', href: '#services' },
-    { label: 'Digital Transformation', href: '#services' },
-    { label: 'AI & Automation', href: '#services' },
+    { label: 'Website Development', href: '/services' },
+    { label: 'Mobile Application Development', href: '/services' },
+    { label: 'Custom Software Development', href: '/services' },
+    { label: 'UI/UX Design', href: '/services' },
+    { label: 'E-Commerce Development', href: '/services' },
+    { label: 'Cloud & DevOps', href: '/services' },
+    { label: 'Digital Transformation', href: '/services' },
+    { label: 'AI & Automation', href: '/services' },
   ];
 
   const techLinks = [
@@ -53,7 +50,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-slate-200/80">
           {/* Brand Info (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href="#hero" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group">
               <div className="w-11 h-11 rounded-2xl bg-white/95 backdrop-blur-md border border-white p-1 flex items-center justify-center shadow-[0_6px_18px_rgba(255,107,0,0.2),inset_0_1.5px_2px_rgba(255,255,255,0.95)] group-hover:scale-105 transition-all overflow-hidden">
                 <Image
                   src="/images/logo-icon.png"

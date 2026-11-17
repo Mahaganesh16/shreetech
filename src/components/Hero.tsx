@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -50,14 +51,6 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section
       id="hero"
@@ -74,8 +67,8 @@ export default function Hero() {
           {/* Left Column: Headline & Action Buttons (7 Cols on desktop for generous text width) */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
             {/* Translucent Glass Pill Badge */}
-            <div className="glass-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-slate-700 text-xs font-semibold tracking-wide mb-6">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-rose-600 animate-ping" />
+            <div className="glass-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-slate-700 text-xs font-semibold tracking-wide mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-orange-600 shrink-0" />
               <span>Enterprise IT & Modern Digital Experiences</span>
             </div>
 
@@ -108,21 +101,21 @@ export default function Hero() {
 
             {/* Dual Glass Action Buttons */}
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => scrollTo('services')}
+              <Link
+                href="/services"
                 className="glass-btn-primary inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl font-semibold text-sm cursor-pointer shadow-lg w-full sm:w-auto"
               >
                 <span>Explore Our Services</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
 
-              <button
-                onClick={() => scrollTo('contact')}
+              <Link
+                href="/contact"
                 className="glass-btn-secondary inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-sm cursor-pointer w-full sm:w-auto"
               >
                 <Sparkles className="w-4 h-4 text-orange-600" />
                 <span>Get In Touch</span>
-              </button>
+              </Link>
             </div>
           </div>
 
