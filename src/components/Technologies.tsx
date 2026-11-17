@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { technologyGroups } from '@/data/technologies';
+import { CheckCircle2, RotateCw, Sparkles } from 'lucide-react';
 import { 
   ReactLogo, 
   NextLogo, 
@@ -59,6 +60,65 @@ function getMarqueeSet(items: TechItem[], minTotal = 12): TechItem[] {
   return [...baseSet, ...baseSet];
 }
 
+function TechFlipCard({
+  tech,
+  category,
+  Logo,
+}: {
+  tech: TechItem;
+  category: string;
+  Logo: React.ComponentType<{ className?: string }>;
+}) {
+  return (
+    <div className="w-[260px] sm:w-[280px] h-[92px] shrink-0 flip-card-wrapper group cursor-pointer select-none">
+      <div className="flip-card-inner">
+        {/* ========================================================
+            FRONT FACE OF THE TECH CARD
+            ======================================================== */}
+        <div className="flip-card-front glass-card p-3.5 rounded-2xl flex items-center gap-3.5 border border-white/95 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.04)] group-hover:border-orange-300/70 transition-colors">
+          <div className="w-11 h-11 rounded-xl bg-white border border-slate-100 flex items-center justify-center shrink-0 p-2 shadow-sm">
+            <Logo className="w-full h-full object-contain" />
+          </div>
+          <div className="overflow-hidden min-w-0 flex-1">
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors truncate font-heading">
+                {tech.name}
+              </h4>
+              <RotateCw className="w-3 h-3 text-orange-400 group-hover:rotate-180 transition-transform duration-500 shrink-0" />
+            </div>
+            <p className="text-[11px] text-slate-500 truncate mt-0.5 font-normal font-body">
+              {tech.description}
+            </p>
+          </div>
+        </div>
+
+        {/* ========================================================
+            BACK FACE OF THE TECH CARD (Reveals Standards)
+            ======================================================== */}
+        <div className="flip-card-back glass-card p-3 rounded-2xl flex items-center justify-between gap-3 border-2 border-orange-400/50 bg-white/95 shadow-md">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="text-[9px] font-bold text-orange-900 bg-orange-100/90 border border-orange-300/80 px-2 py-0.2 rounded-full uppercase tracking-wider font-body">
+                {category}
+              </span>
+              <span className="text-[10px] font-bold text-slate-900 font-heading truncate">
+                {tech.name}
+              </span>
+            </div>
+            <div className="flex items-center gap-1 text-[10px] text-slate-700 font-medium font-body truncate">
+              <CheckCircle2 className="w-3 h-3 text-orange-600 shrink-0" />
+              <span>Production-Hardened</span>
+            </div>
+          </div>
+          <div className="w-8 h-8 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center shrink-0 text-orange-600">
+            <Sparkles className="w-4 h-4" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Technologies() {
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
@@ -108,12 +168,13 @@ export default function Technologies() {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="glass-pill inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-orange-800 mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-orange-600" />
             <span>Core Technology Stack</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-heading">
             Battle-Tested Modern Technologies
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed font-body">
             We build with reliable, industry-standard languages and frameworks that guarantee long-term
             maintainability, enterprise scalability, and developer ergonomics.
           </p>
@@ -125,7 +186,7 @@ export default function Technologies() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-2xl transition-all cursor-pointer ${
+              className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-2xl transition-all cursor-pointer font-body ${
                 activeCategory === cat
                   ? 'glass-btn-primary shadow-md'
                   : 'glass-btn-secondary text-slate-700 hover:text-orange-950'
@@ -148,7 +209,7 @@ export default function Technologies() {
                   <h3 className="text-xl font-bold text-slate-900 font-heading">
                     {group.category} Engineering
                   </h3>
-                  <span className="text-xs text-slate-500 font-normal">{group.description}</span>
+                  <span className="text-xs text-slate-500 font-normal font-body">{group.description}</span>
                 </div>
 
                 {/* Continuous Infinite Auto-Scrolling Track (Right to Left) */}
@@ -157,28 +218,18 @@ export default function Technologies() {
                   <div className="pointer-events-none absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/85 to-transparent z-10" />
                   <div className="pointer-events-none absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#faf9f6] via-[#faf9f6]/85 to-transparent z-10" />
 
-                  {/* Auto-scrolling Row */}
+                  {/* Auto-scrolling Row with 3D Flip Cards */}
                   <div className="slack-scroll-row">
                     {marqueeItems.map((tech, idx) => {
                       const Logo = logoComponentMap[tech.iconComponent] || ReactLogo;
 
                       return (
-                        <div
+                        <TechFlipCard
                           key={`${group.category}-${tech.name}-${idx}`}
-                          className="w-[260px] sm:w-[280px] shrink-0 glass-card glass-card-hover p-4 rounded-2xl flex items-center gap-3.5 group cursor-default relative overflow-hidden select-none"
-                        >
-                          <div className="w-11 h-11 rounded-xl bg-white border border-slate-100 flex items-center justify-center shrink-0 p-2 group-hover:scale-110 group-hover:-translate-y-0.5 transition-all duration-300 shadow-sm">
-                            <Logo className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
-                          </div>
-                          <div className="overflow-hidden min-w-0 flex-1">
-                            <h4 className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors truncate font-heading">
-                              {tech.name}
-                            </h4>
-                            <p className="text-[11px] text-slate-500 truncate mt-0.5 font-normal">
-                              {tech.description}
-                            </p>
-                          </div>
-                        </div>
+                          tech={tech}
+                          category={group.category}
+                          Logo={Logo}
+                        />
                       );
                     })}
                   </div>

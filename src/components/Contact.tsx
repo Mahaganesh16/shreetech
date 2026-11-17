@@ -1,8 +1,81 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, CheckCircle2, AlertCircle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2, AlertCircle, ArrowRight, ShieldCheck, RotateCw, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterXIcon } from '@/components/SocialIcons';
+
+function ContactChannelFlipCard({
+  icon: Icon,
+  label,
+  value,
+  actionText,
+  href,
+  badgeText,
+  highlight,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+  actionText: string;
+  href: string;
+  badgeText: string;
+  highlight: string;
+}) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div
+      className="flip-card-wrapper h-24 sm:h-28 w-full select-none group cursor-pointer"
+      onClick={() => setIsFlipped((prev) => !prev)}
+    >
+      <div className={`flip-card-inner ${isFlipped ? 'is-flipped' : ''}`}>
+        {/* FRONT FACE */}
+        <div className="flip-card-front glass-card p-4 rounded-3xl flex items-center justify-between border border-white/95 shadow-[0_15px_35px_-10px_rgba(15,23,42,0.05)] group-hover:border-orange-300/70 transition-colors">
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0 shadow-sm">
+              <Icon className="w-5 h-5" />
+            </div>
+            <div className="min-w-0">
+              <div className="text-xs text-slate-500 font-medium font-body">{label}</div>
+              <div className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors font-heading truncate">
+                {value}
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col items-end gap-1 shrink-0 pl-2">
+            <RotateCw className="w-3.5 h-3.5 text-orange-400 group-hover:rotate-180 transition-transform duration-500" />
+            <span className="text-[10px] text-slate-400 font-body">Flip</span>
+          </div>
+        </div>
+
+        {/* BACK FACE */}
+        <div className="flip-card-back glass-card p-4 rounded-3xl flex items-center justify-between border-2 border-orange-400/50 bg-white/95 shadow-md">
+          <div className="min-w-0 flex-1 pr-3">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="text-[10px] font-bold text-orange-900 bg-orange-100/90 border border-orange-300/80 px-2 py-0.5 rounded-full uppercase tracking-wider font-body">
+                {badgeText}
+              </span>
+              <Sparkles className="w-3 h-3 text-orange-500 shrink-0" />
+            </div>
+            <div className="text-xs text-slate-600 font-medium font-body truncate">
+              {highlight}
+            </div>
+          </div>
+          <a
+            href={href}
+            target={href.startsWith('http') ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-rose-600 text-white font-semibold text-xs flex items-center gap-1 shrink-0 shadow-sm hover:scale-105 transition-transform font-body"
+          >
+            <span>{actionText}</span>
+            <ArrowRight className="w-3 h-3" />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 interface FormData {
   name: string;
@@ -96,49 +169,37 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Direct Contact Channels in Glass Cards */}
+            {/* Direct Contact Channels in 3D Flip Glass Cards */}
             <div className="space-y-4">
-              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0 shadow-sm">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500 font-medium">Direct Inquiries</div>
-                  <a
-                    href="mailto:contact@shreetech.com"
-                    className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors"
-                  >
-                    contact@shreetech.com
-                  </a>
-                </div>
-              </div>
+              <ContactChannelFlipCard
+                icon={Mail}
+                label="Direct Inquiries"
+                value="contact@shreetech.com"
+                badgeText="Priority Email"
+                highlight="Average response: < 2 business hours"
+                actionText="Email Us"
+                href="mailto:contact@shreetech.com"
+              />
 
-              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0 shadow-sm">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500 font-medium">Direct Hotline</div>
-                  <a
-                    href="tel:+18008402030"
-                    className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors font-stat"
-                  >
-                    +1 (800) 840-2030
-                  </a>
-                </div>
-              </div>
+              <ContactChannelFlipCard
+                icon={Phone}
+                label="Direct Hotline"
+                value="+1 (800) 840-2030"
+                badgeText="Live Dispatch"
+                highlight="Mon-Fri, 8:00 AM - 8:00 PM PST"
+                actionText="Call Direct"
+                href="tel:+18008402030"
+              />
 
-              <div className="glass-card glass-card-hover p-4 rounded-3xl flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-600 group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0 shadow-sm">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500 font-medium">Headquarters</div>
-                  <div className="text-sm text-slate-700 font-medium group-hover:text-slate-900 transition-colors">
-                    500 Howard Street, Suite 400<br />San Francisco, CA 94105
-                  </div>
-                </div>
-              </div>
+              <ContactChannelFlipCard
+                icon={MapPin}
+                label="Headquarters"
+                value="500 Howard St, San Francisco"
+                badgeText="Bay Area HQ"
+                highlight="Suite 400, SF Financial District"
+                actionText="View Map"
+                href="https://maps.google.com/?q=500+Howard+Street+San+Francisco+CA+94105"
+              />
             </div>
 
             {/* Social Links */}

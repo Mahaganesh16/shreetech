@@ -23,6 +23,15 @@ export default function Home() {
       badge: 'Company Profile',
       icon: Users,
       gradient: 'from-orange-500 to-amber-500',
+      backBadge: 'Core Highlights',
+      backTitle: 'Engineering Discipline',
+      highlights: [
+        '10+ Years enterprise software delivery record',
+        '45+ Senior full-stack developers & architects',
+        '99% Long-term client retention rate',
+        'ISO-aligned clean code & domain architecture',
+      ],
+      ctaText: 'Explore About Us',
     },
     {
       title: 'Engineering Services',
@@ -31,6 +40,15 @@ export default function Home() {
       badge: 'Core Capabilities',
       icon: Code2,
       gradient: 'from-orange-600 to-rose-600',
+      backBadge: '8 Core Offerings',
+      backTitle: 'End-to-End Delivery',
+      highlights: [
+        'Full-stack enterprise web platforms & SaaS',
+        'iOS & Android native & cross-platform apps',
+        'Resilient cloud architecture & serverless APIs',
+        'Legacy code modernization & DevOps automation',
+      ],
+      ctaText: 'Explore All Services',
     },
     {
       title: 'Technology Stack',
@@ -39,6 +57,15 @@ export default function Home() {
       badge: 'Stack & Tools',
       icon: Cpu,
       gradient: 'from-rose-500 to-purple-600',
+      backBadge: 'Modern Tooling',
+      backTitle: 'Battle-Tested Tech',
+      highlights: [
+        'Frontend: Next.js 16, React 19 & TypeScript',
+        'Backend: Node.js, Python, Laravel & PHP',
+        'Databases: PostgreSQL, MongoDB & MySQL',
+        'Cloud & DevOps: AWS, Azure & Docker pipelines',
+      ],
+      ctaText: 'View Full Tech Stack',
     },
     {
       title: 'Featured Projects',
@@ -47,6 +74,15 @@ export default function Home() {
       badge: 'Client Success',
       icon: Briefcase,
       gradient: 'from-purple-600 to-indigo-600',
+      backBadge: 'Verified Case Studies',
+      backTitle: 'Production Impact',
+      highlights: [
+        'Enterprise FinTech: 99.99% SLA, $4.2B processed',
+        'HealthCare EHR: HIPAA-compliant clinical suite',
+        'Logistics Fleet Engine: 40k+ live tracking events',
+        'Omnichannel E-Commerce: Sub-second page loads',
+      ],
+      ctaText: 'Browse Case Studies',
     },
     {
       title: 'Contact & Consultation',
@@ -55,6 +91,15 @@ export default function Home() {
       badge: 'Start a Project',
       icon: Mail,
       gradient: 'from-orange-500 to-rose-500',
+      backBadge: 'Direct Engagement',
+      backTitle: 'Start a Conversation',
+      highlights: [
+        'Direct consultation with senior architects',
+        'Guaranteed 1-business-day scope reviews',
+        'Transparent agile milestones & fixed quotes',
+        'Comprehensive NDA & client IP protection',
+      ],
+      ctaText: 'Schedule Consultation',
     },
   ];
 
