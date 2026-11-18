@@ -108,24 +108,24 @@ export default function Home() {
       {/* 1. Hero Section: Headline, Animated Stack, 2 CTAs */}
       <Hero />
 
-      {/* 2. Multi-Page Navigation Directory: Clean, Concise Overview Cards */}
-      <section className="relative py-20 sm:py-28 bg-transparent overflow-hidden border-t border-slate-200/60">
+      {/* 2. Multi-Page Navigation Directory: Orange-tint section (#FFF4EA) */}
+      <section className="relative py-20 sm:py-28 bg-[#FFF4EA] overflow-hidden border-y border-[#F1E6EE]">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <div className="glass-pill inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-orange-800 mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-orange-600" />
+            <div className="glass-pill inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#8B5CF6] mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-[#FF6B00]" />
               <span>Explore Shree Tech</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-heading">
+            <h2 className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight font-heading">
               Engineering Digital Excellence Across Every Dimension
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed font-body">
+            <p className="mt-4 text-base sm:text-lg text-[#475569] font-normal leading-relaxed font-body">
               Browse our dedicated sections to learn about our engineering team, explore our services,
               review our battle-tested tech stack, and see our work.
             </p>
           </div>
 
-          {/* Directory Cards Grid with High-Tech Hover Animations */}
+          {/* Directory Cards Grid: Pure White Cards on Orange-tint Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sections.map((sec) => (
               <DirectoryCard key={sec.title} {...sec} />
@@ -133,34 +133,34 @@ export default function Home() {
           </div>
 
           {/* Trust Highlights */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-slate-200/60">
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-orange-100/80 text-orange-600 flex items-center justify-center shrink-0">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-[#F1E6EE]">
+            <div className="flex items-center gap-3.5 bg-white p-4 rounded-2xl border border-[#F1E6EE] shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-[#FFF4EA] text-[#FF6B00] border border-[#FF6B00]/20 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-sm font-bold text-slate-900 font-heading">Enterprise Security</div>
-                <div className="text-xs text-slate-500 font-body">ISO & GDPR compliant practices</div>
+                <div className="text-sm font-bold text-[#0F172A] font-heading">Enterprise Security</div>
+                <div className="text-xs text-[#475569] font-body">ISO & GDPR compliant practices</div>
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-rose-100/80 text-rose-600 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3.5 bg-white p-4 rounded-2xl border border-[#F1E6EE] shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-[#FFF0F5] text-[#C01858] border border-[#C01858]/20 flex items-center justify-center shrink-0">
                 <Zap className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-sm font-bold text-slate-900 font-heading">High-Speed Execution</div>
-                <div className="text-xs text-slate-500 font-body">Agile two-week sprint delivery</div>
+                <div className="text-sm font-bold text-[#0F172A] font-heading">High-Speed Execution</div>
+                <div className="text-xs text-[#475569] font-body">Agile two-week sprint delivery</div>
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-purple-100/80 text-purple-600 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3.5 bg-white p-4 rounded-2xl border border-[#F1E6EE] shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-[#F5F0FF] text-[#8B5CF6] border border-[#8B5CF6]/20 flex items-center justify-center shrink-0">
                 <Globe className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-sm font-bold text-slate-900 font-heading">Global Collaboration</div>
-                <div className="text-xs text-slate-500 font-body">Seamless remote engineering teams</div>
+                <div className="text-sm font-bold text-[#0F172A] font-heading">Global Collaboration</div>
+                <div className="text-xs text-[#475569] font-body">Seamless remote engineering teams</div>
               </div>
             </div>
           </div>

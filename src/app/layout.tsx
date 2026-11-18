@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const viewport: Viewport = {
-  themeColor: '#faf9f6',
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     'Next.js Development',
     'Enterprise Web Applications',
     'Mobile Application Development',
-    'Glassmorphism UI',
     'Cloud and DevOps',
   ],
   authors: [{ name: 'Shree Tech' }],
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Shree Tech | Software Engineering & Cloud Solutions',
     description:
-      'We help businesses transform ideas into scalable digital products through innovative software engineering, modern technologies, and thoughtful glassmorphism design.',
+      'We help businesses transform ideas into scalable digital products through innovative software engineering, modern technologies, and thoughtful design.',
     url: 'https://shreetech.com',
     siteName: 'Shree Tech',
     locale: 'en_US',
@@ -62,37 +61,34 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#faf9f6] text-[#0f172a] min-h-screen flex flex-col antialiased selection:bg-orange-500/20 selection:text-orange-950">
-        {/* Architectural backdrop aesthetic */}
-        <div className="arch-silhouette-bg" />
-
-        {/* Fixed Brand Watermark Behind Glassmorphism Layers (Using authentic logo) */}
+      <body className="bg-white text-[#475569] min-h-screen flex flex-col antialiased selection:bg-[#FF6B00]/15 selection:text-[#C01858]">
+        {/* Subtle Brand Watermark Behind Layers (Using authentic logo without altering colors) */}
         <div
           aria-hidden="true"
           className="fixed inset-x-0 top-20 bottom-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden"
         >
-          <div className="relative flex items-center justify-center w-[min(78vw,560px)] h-[min(78vw,560px)]">
-            <div className="absolute inset-12 rounded-full bg-gradient-to-tr from-orange-400/20 via-rose-400/20 to-purple-400/20 blur-[90px]" />
+          <div className="relative flex items-center justify-center w-[min(76vw,540px)] h-[min(76vw,540px)]">
+            <div className="absolute inset-12 rounded-full bg-gradient-to-tr from-[#FF6B00]/8 via-[#C01858]/6 to-[#8B5CF6]/6 blur-[90px]" />
             <Image
               src="/images/logo-icon.png"
               alt=""
               width={412}
               height={412}
-              sizes="(max-width: 768px) 78vw, 560px"
+              sizes="(max-width: 768px) 76vw, 540px"
               loading="eager"
               unoptimized
-              className="relative w-full h-full object-contain opacity-[0.20] select-none drop-shadow-[0_0_48px_rgba(255,107,0,0.25)]"
+              className="relative w-full h-full object-contain opacity-[0.12] select-none"
             />
           </div>
         </div>
 
-        {/* Floating Frosted Glass Navbar */}
+        {/* Top White Navbar */}
         <Navbar />
 
         {/* Main Content Sections */}
         <main className="flex-1 relative z-10">{children}</main>
 
-        {/* Frosted Glass Footer */}
+        {/* Clean Footer */}
         <Footer />
       </body>
     </html>

@@ -2,8 +2,17 @@
 
 @layer base {
   :root {
-    --bg-base: #faf9f6;
+    --bg-base: #ffffff;
     --foreground: #0f172a;
+    --color-orange: #FF6B00;
+    --color-magenta: #C01858;
+    --color-purple: #8B5CF6;
+    --color-heading: #0F172A;
+    --color-body: #475569;
+    --color-border: #F1E6EE;
+    --bg-tint-orange: #FFF4EA;
+    --bg-tint-magenta: #FFF0F5;
+    --bg-tint-purple: #F5F0FF;
     --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
@@ -14,19 +23,17 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #ffffff;
   }
 
   body {
-    background-color: #faf9f6;
+    background-color: #ffffff;
     background-image:
-      radial-gradient(ellipse at 15% 15%, rgba(255, 237, 213, 0.45) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 20%, rgba(254, 226, 226, 0.45) 0%, transparent 60%),
-      radial-gradient(ellipse at 50% 50%, rgba(255, 247, 237, 0.5) 0%, transparent 70%),
-      radial-gradient(ellipse at 20% 80%, rgba(254, 242, 242, 0.4) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 85%, rgba(250, 245, 255, 0.35) 0%, transparent 60%),
-      linear-gradient(180deg, #ffffff 0%, #faf8f5 35%, #fdfbf7 70%, #ffffff 100%);
+      radial-gradient(50% 35% at 0% 0%, rgba(255, 107, 0, 0.08), transparent 70%),
+      radial-gradient(50% 35% at 100% 0%, rgba(139, 92, 246, 0.08), transparent 70%),
+      radial-gradient(50% 35% at 50% 100%, rgba(192, 24, 88, 0.06), transparent 70%);
     background-attachment: fixed;
-    color: #0f172a;
+    color: #475569;
     font-family: var(--font-body);
     letter-spacing: -0.015em;
     -webkit-font-smoothing: antialiased;
@@ -47,6 +54,7 @@
     font-family: var(--font-heading);
     letter-spacing: -0.03em;
     font-weight: 700;
+    color: #0F172A;
   }
 
   h1 {
@@ -71,24 +79,23 @@
     font-family: var(--font-body);
   }
 
-  /* Custom Neutral Frosted Glass Scrollbar */
+  /* Custom Neutral Scrollbar with Flame Orange Accent */
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(245, 245, 247, 0.8);
+    background: #ffffff;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(249, 115, 22, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 107, 0, 0.35);
     border-radius: 9999px;
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    border: 2px solid #ffffff;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(234, 88, 12, 0.6);
+    background: #C01858;
   }
 
   /* Utility to completely hide scrollbars */
@@ -102,36 +109,50 @@
 }
 
 /* -------------------------------------------------------------
-   SIGNATURE FROSTED CRYSTAL GLASSMORPHYSM
-   Clean neutral crystal glass with warm brand harmony
+   SIGNATURE BRAND SECTION TINTS (White + Logo Accents)
+   ------------------------------------------------------------- */
+.section-white {
+  background-color: #ffffff;
+}
+
+.section-tint-orange {
+  background-color: #FFF4EA;
+}
+
+.section-tint-magenta {
+  background-color: #FFF0F5;
+}
+
+.section-tint-purple {
+  background-color: #F5F0FF;
+}
+
+/* -------------------------------------------------------------
+   SIGNATURE PURE WHITE CARDS WITH DELICATE ROSE-TINT BORDER
    ------------------------------------------------------------- */
 
-/* Primary Frosted Glass Card */
+/* Primary Card: Pure white with #F1E6EE border */
 .glass-card {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  background: #ffffff;
+  border: 1px solid #F1E6EE;
   box-shadow: 
-    0 20px 45px -10px rgba(15, 23, 42, 0.05),
-    0 1px 3px 0 rgba(0, 0, 0, 0.02),
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95);
-  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    0 16px 36px -6px rgba(15, 23, 42, 0.04),
+    0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
 .glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(255, 107, 0, 0.38);
-  transform: translateY(-6px);
+  background: #ffffff;
+  border-color: #C01858;
+  transform: translateY(-5px);
   box-shadow: 
-    0 25px 50px -12px rgba(255, 107, 0, 0.16),
-    0 0 25px rgba(255, 107, 0, 0.07),
-    inset 0 1.5px 2px 0 #ffffff;
+    0 22px 45px -8px rgba(192, 24, 88, 0.14),
+    0 0 22px rgba(255, 107, 0, 0.08);
 }
 
-/* Diagonal glass sheen reflection sweep on all hover glass cards */
+/* Diagonal crystal sheen reflection sweep on hover */
 .glass-card-hover::before {
   content: '';
   position: absolute;
@@ -142,11 +163,11 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.32) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
     transparent 100%
   );
   transform: skewX(-15deg);
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   z-index: 2;
 }
@@ -155,7 +176,7 @@
   transform: translateX(100%) skewX(-15deg);
 }
 
-/* Bottom radiant gradient accent line on all hover glass cards */
+/* Bottom radiant brand gradient accent line (Orange -> Magenta -> Purple) */
 .glass-card-hover::after {
   content: '';
   position: absolute;
@@ -163,10 +184,10 @@
   left: 0;
   right: 0;
   height: 2.5px;
-  background: linear-gradient(90deg, #ff6b00 0%, #c01858 50%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #FF6B00 0%, #C01858 55%, #8B5CF6 100%);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   z-index: 3;
 }
@@ -215,6 +236,9 @@
 }
 
 .flip-card-front {
+  background: #ffffff !important;
+  border: 1px solid #F1E6EE !important;
+  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.04) !important;
   transform: rotateY(0deg) translateZ(1px);
   -webkit-transform: rotateY(0deg) translateZ(1px);
   z-index: 2;
@@ -222,6 +246,9 @@
 }
 
 .flip-card-back {
+  background: #ffffff !important;
+  border: 2px solid #C01858 !important;
+  box-shadow: 0 24px 48px -8px rgba(192, 24, 88, 0.16) !important;
   transform: rotateY(180deg) translateZ(1px);
   -webkit-transform: rotateY(180deg) translateZ(1px);
   z-index: 1;
@@ -239,167 +266,131 @@
   pointer-events: none;
 }
 
-/* Heavy Frosted Glass Panel (Modals, Dashboard Header) */
+/* Modals & Dialogs Panel */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(36px) saturate(190%);
-  -webkit-backdrop-filter: blur(36px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  background: #ffffff;
+  border: 1px solid #F1E6EE;
   box-shadow:
-    0 30px 60px -12px rgba(15, 23, 42, 0.07),
-    inset 0 2px 2px 0 #ffffff;
+    0 30px 60px -12px rgba(15, 23, 42, 0.08),
+    0 0 30px rgba(192, 24, 88, 0.06);
 }
 
-/* Translucent Glass Pill Badge */
+/* Small Glows & Badges: Purple #8B5CF6 with #F5F0FF tint */
 .glass-pill {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 4px 15px rgba(15, 23, 42, 0.03),
-    inset 0 1px 1.5px 0 #ffffff;
+  background: #F5F0FF;
+  border: 1px solid #F1E6EE;
+  color: #8B5CF6;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08);
 }
 
-/* Clean Top Glassmorphism Navbar */
+/* Category Badges */
+.badge-purple {
+  background: #F5F0FF;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: #8B5CF6;
+}
+
+.badge-orange {
+  background: #FFF4EA;
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  color: #FF6B00;
+}
+
+.badge-magenta {
+  background: #FFF0F5;
+  border: 1px solid rgba(192, 24, 88, 0.25);
+  color: #C01858;
+}
+
+/* Clean Top White Navbar */
 .glass-navbar-top {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 2px 15px -3px rgba(15, 23, 42, 0.03);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #F1E6EE;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.02);
 }
 
 .glass-navbar-scrolled {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(32px) saturate(210%);
-  -webkit-backdrop-filter: blur(32px) saturate(210%);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid #F1E6EE;
   box-shadow:
-    0 10px 30px -10px rgba(15, 23, 42, 0.08),
-    0 0 20px rgba(255, 107, 0, 0.05),
-    inset 0 1px 1px 0 #ffffff;
+    0 8px 24px -4px rgba(15, 23, 42, 0.06),
+    0 0 16px rgba(255, 107, 0, 0.04);
 }
 
-/* Glass Menu Item Inner Pill Dock */
+/* Menu Item Inner Pill Dock */
 .glass-nav-pill {
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.9);
+  background: #ffffff;
+  border: 1px solid #F1E6EE;
+  box-shadow: inset 0 1px 1.5px rgba(0, 0, 0, 0.02);
 }
 
-/* Frosted Glass Inputs */
+/* Clean White Inputs */
 .glass-input {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  color: #0f172a;
-  box-shadow: inset 0 1.5px 3px rgba(15, 23, 42, 0.03);
+  background: #ffffff;
+  border: 1px solid #F1E6EE;
+  color: #0F172A;
+  box-shadow: inset 0 1.5px 3px rgba(15, 23, 42, 0.02);
   transition: all 0.25s ease;
 }
 
 .glass-input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(255, 107, 0, 0.6);
+  background: #ffffff;
+  border-color: #C01858;
   box-shadow:
-    0 0 20px rgba(255, 107, 0, 0.18),
-    inset 0 1px 1.5px #ffffff;
+    0 0 18px rgba(192, 24, 88, 0.16),
+    0 0 6px rgba(255, 107, 0, 0.1);
 }
 
-/* Frosted Primary Glass Button (Matching the official Flame Orange & Magenta Logo) */
+/* -------------------------------------------------------------
+   BUTTONS: linear-gradient(135deg, #FF6B00 0%, #C01858 55%, #8B5CF6 100%)
+   ------------------------------------------------------------- */
 .glass-btn-primary {
-  background: linear-gradient(135deg, #ff6b00 0%, #c01858 55%, #8b5cf6 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, #FF6B00 0%, #C01858 55%, #8B5CF6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
-    0 10px 25px -4px rgba(255, 107, 0, 0.35),
-    0 4px 15px rgba(192, 24, 88, 0.22),
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.65);
+    0 10px 24px -4px rgba(255, 107, 0, 0.35),
+    0 4px 14px rgba(192, 24, 88, 0.22);
   color: #ffffff;
   transition: all 0.25s ease;
 }
 
 .glass-btn-primary:hover {
-  background: linear-gradient(135deg, #ff7e1a 0%, #d42268 55%, #9d6fff 100%);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, #FF7E1A 0%, #D42268 55%, #9D6FFF 100%);
+  border-color: #ffffff;
   box-shadow:
     0 14px 30px -4px rgba(255, 107, 0, 0.45),
-    0 6px 20px rgba(192, 24, 88, 0.32),
-    inset 0 1.5px 2px 0 #ffffff;
+    0 6px 20px rgba(192, 24, 88, 0.32);
   transform: translateY(-2px);
 }
 
-/* Frosted Secondary Glass Button */
+/* Secondary Button: Clean White with #F1E6EE border and #C01858 hover */
 .glass-btn-secondary {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 6px 20px rgba(15, 23, 42, 0.04),
-    inset 0 1.5px 2px 0 #ffffff;
-  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #F1E6EE;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+  color: #0F172A;
   transition: all 0.25s ease;
 }
 
 .glass-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.98);
-  border-color: rgba(255, 107, 0, 0.35);
-  box-shadow:
-    0 10px 25px rgba(15, 23, 42, 0.06),
-    inset 0 1px 2px 0 #ffffff;
+  background: #ffffff;
+  border-color: #C01858;
+  color: #C01858;
+  box-shadow: 0 8px 22px rgba(192, 24, 88, 0.1);
   transform: translateY(-2px);
 }
 
-/* Light Architectural Texture (Warm Minimalist Ambient) */
-.arch-silhouette-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.05;
-  background-image: radial-gradient(circle at 50% 30%, #ff6b00 0%, transparent 60%);
-  mix-blend-mode: multiply;
-}
-
 /* -------------------------------------------------------------
-   INFINITE RIGHT-TO-LEFT MARQUEE ANIMATIONS
-   Silky 60/120fps hardware-accelerated horizontal scroll
+   HEADINGS HIGHLIGHT TEXT: linear-gradient(90deg, #FF6B00, #C01858)
    ------------------------------------------------------------- */
-@keyframes marquee-rtl {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.animate-marquee-rtl {
-  display: flex;
-  width: max-content;
-  animation: marquee-rtl var(--marquee-duration, 30s) linear infinite;
-  will-change: transform;
-}
-
-/* Pause animation on hover or explicit pause class */
-.marquee-track:hover .animate-marquee-rtl,
-.marquee-paused .animate-marquee-rtl {
-  animation-play-state: paused !important;
-}
-
-/* Hide scrollbar utility across browsers */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.text-gradient-brand,
+.brand-gradient-text {
+  background: linear-gradient(90deg, #FF6B00, #C01858);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

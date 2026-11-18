@@ -66,14 +66,14 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Headline & Action Buttons (7 Cols on desktop for generous text width) */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-            {/* Translucent Glass Pill Badge */}
-            <div className="glass-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-slate-700 text-xs font-semibold tracking-wide mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+            {/* Translucent Glass Pill Badge (#8B5CF6 on #F5F0FF) */}
+            <div className="glass-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[#8B5CF6] text-xs font-semibold tracking-wide mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
               <span>Enterprise IT & Modern Digital Experiences</span>
             </div>
 
             {/* Headline with Balanced 2-Line Architecture for Laptop & Desktop */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.35rem] xl:text-[2.9rem] 2xl:text-[3.25rem] font-black tracking-tight text-slate-900 leading-[1.16]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.35rem] xl:text-[2.9rem] 2xl:text-[3.25rem] font-black tracking-tight text-[#0F172A] leading-[1.16]">
               <span className="block lg:whitespace-nowrap">
                 Building Digital Solutions That
               </span>
@@ -85,7 +85,7 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, y: -14, filter: 'blur(4px)' }}
                     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-block whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-600 to-purple-600"
+                    className="inline-block whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#C01858]"
                   >
                     {rotatingPhrases[phraseIndex]}
                   </motion.span>
@@ -93,13 +93,13 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed">
+            {/* Description: Body text #475569 */}
+            <p className="mt-6 text-base sm:text-lg text-[#475569] max-w-xl font-normal leading-relaxed">
               We help businesses transform bold ideas into scalable digital products through innovative
-              software engineering, modern cloud technologies, and thoughtful glassmorphism design.
+              software engineering, modern cloud technologies, and thoughtful design.
             </p>
 
-            {/* Dual Glass Action Buttons */}
+            {/* Dual Action Buttons */}
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 w-full sm:w-auto">
               <Link
                 href="/services"
@@ -113,7 +113,7 @@ export default function Hero() {
                 href="/contact"
                 className="glass-btn-secondary inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-sm cursor-pointer w-full sm:w-auto"
               >
-                <Sparkles className="w-4 h-4 text-orange-600" />
+                <Sparkles className="w-4 h-4 text-[#FF6B00]" />
                 <span>Get In Touch</span>
               </Link>
             </div>
